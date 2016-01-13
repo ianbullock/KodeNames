@@ -13,15 +13,22 @@ var NUMBER_OF_WORDS = 25;
 var spyMasterMode = false;
 var sessionData = [];
 
-var COLOR_RED = "#ff0000";
-var COLOR_YELLOW = "#ffff00";
-var COLOR_BLUE = "#00eeee";
+var COLOR_RED = "#ff564c";
+var COLOR_NEUTRAL = "#aaaaaa";
+var COLOR_BLUE = "#439ed4";
 var COLOR_BLACK = "black";
 var COLOR_GREEN = "#009000";
 
-function fire(){
+function fire() {
 	//get seed and set the seed for randomizer
 	var seed = document.getElementById("seed").value;
+    
+    // Fill a seed if the seed is empty. 
+    if (seed.length === 0) {
+        seed = makeDefaultSeed();
+        document.getElementById("seed").value = seed;
+    }
+    
 	Math.seedrandom(seed);
 
 	//reset state to pristine state
@@ -35,8 +42,22 @@ function fire(){
 	createNewGame();
 }
 
+function makeDefaultSeed()
+{
+    // src: http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
+    var seedLength = 5;
+    var text = "";
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+
+    for( var i=0; i < seedLength; i++ ) {
+        var charIndex = Math.floor(Math.random() * possible.length);
+        text += possible.charAt(charIndex);
+    }
+    return text;
+}
+
 //not used, but probably useful at some point
-function removeItem(array, index){
+function removeItem(array, index) {
 	if (index > -1) {
 		// console.log("index: " + index + ", word: " + array[index] + " removed.");
 	    array.splice(index, 1);
@@ -80,7 +101,7 @@ function createNewGame(){
 	
 	// add neturals 
 	for(var i = 0; i < 7; i++){
-		teams.push(COLOR_YELLOW);
+		teams.push(COLOR_NEUTRAL);
 	}
 
 	// push the assasin

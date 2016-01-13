@@ -1,6 +1,5 @@
-
 html {
-	font-family : "Verdana";
+	font-family : sans-serif;
 }
 
 #board {
@@ -20,7 +19,9 @@ button, input, span#first {
 }
 
 #board div.row {
-	height : 20%;
+	height : 19%;
+    margin-bottom: 0.2em;
+    margin-top: 0.2em;
 }
 
 #board div.word {
@@ -28,14 +29,14 @@ button, input, span#first {
 	text-align : center;
 	vertical-align : middle;
 	cursor : pointer;
-	border : 2px #DDDDDD solid;
-	border-radius : 5px;
+	border : 1px #dddddd solid;
+	border-radius : 1em;
 	font-weight : bold;
 	width : 19%;
-	height : 99%;
+	height : 100%;
 	display : inline-block;
 	line-height : 99%;
-
+    margin: 0.1em 0.1em 0.1em 0.1em;
 }
 
 #board div.word div {
@@ -66,17 +67,22 @@ button, input, span#first {
 
 
 #spymaster {
-	float : right;
+	
 	margin-left: 10px;
 }
 
 #confirm {
-	float : right;
+	
 }
 
 #confirmText {
-	float : right;	
+	display:inline;
 }
+
+#rightHeader {
+    float: right;
+}
+
 #google_translate_element {
 	float: right;
 }
